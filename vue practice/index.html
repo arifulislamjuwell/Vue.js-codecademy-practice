@@ -1,14 +1,22 @@
 <html>
-
     <head>
+        <script src="vue.js"></script>
         <meta charset="utf-8">
+        <style>
+            .active{
+                background-color: rgb(255, 153, 0);
+                padding: 8px;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
         <input type="text" v-model="name">
         <p>My name is:  {{ name }}</p>
+
+        <a  :class="{'active': activelinks=='link1'}" :href="web.link1.url" :title="web.link1.title"> {{ web.link1.name }} </a>
+        <a :class="{'active': activelinks=='link2'}" :href="web.link2.url" :title="web.link2.title"> {{ web.link2.name }} </a>
     </div>
-        <script src="vue.js"></script>
-        <script src="callback.js"></script>
+        <script src="callback.js" ></script>
     </body>
 </html>
