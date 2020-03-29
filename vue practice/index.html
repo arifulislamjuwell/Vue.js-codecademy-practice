@@ -42,11 +42,33 @@
         <button v-on:click="addNew()"> Add </button>
 
     </div>
+    <hr>
 
-        <script src="callback.js" ></script>
-        <script src="attribute_and_class_bind.js" ></script>
-        <script src="list_rendering_with_condition.js" ></script>
-        <script src="event_and_method.js" ></script>
+    <div id="computed">
+        <ul>
+            <h4> All payments</h4>
+            <li v-for= "(payment, index) in payments">
+                {{ payment.name }} -- {{ payment.amount }} 
+            </li>
+        </ul>
 
+        <ul>
+            <h4> unpaid payments </h4>
+            <li v-for= "(payment, index) in unpaidPayments">
+                {{ payment.name }} -- {{ payment.amount }} 
+            </li>
+        </ul>
+        <p>
+            total amount {{ allAmount }}
+        </p>
+    </div>
+
+
+
+<script src="callback.js" ></script>
+<script src="attribute_and_class_bind.js" ></script>
+<script src="list_rendering_with_condition.js" ></script>
+<script src="event_and_method.js" ></script>
+<script src="computed_properties.js" ></script>
     </body>
 </html>
