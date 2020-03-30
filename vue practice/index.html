@@ -14,7 +14,7 @@
         <!--  attribute class binnding -->
     <div id="app">
         <input type="text" v-model="name">
-        <p>My name is:  {{ name }}</p>
+        <p>My name is:  {{ name  }}</p>
         <p v-html="html"></p>
         <a  :class="{'active': activelinks=='link1'}" :href="web.link1.url" :title="web.link1.title"> {{ web.link1.name }} </a>
         <a :class="{'active': activelinks=='link2'}" :href="web.link2.url" :title="web.link2.title"> {{ web.link2.name }} </a>
@@ -35,7 +35,7 @@
         <ul>
             <h4>method test</h4>
             <li v-for= "(skill, index) in skills">
-                {{ skill }} <button @click = removeSkill(index)> X </button>
+                {{ skill  }} <button @click = removeSkill(index)> X </button>
             </li>
         </ul>
         <input type="text" v-model="newSkill">
@@ -59,8 +59,15 @@
             </li>
         </ul>
         <p>
-            total amount {{ allAmount }}
+            total amount {{ allAmount  }}
         </p>
+    </div>
+    <hr>
+    <div id="filter">
+        <h5> filter </h5>
+        <b>{{ name | upper }}</b> <br>
+        <b>{{ profession | upperCaseName }}</b><br>
+        <b> {{ today | bdFormat }} </b>
     </div>
 
 
@@ -70,5 +77,6 @@
 <script src="list_rendering_with_condition.js" ></script>
 <script src="event_and_method.js" ></script>
 <script src="computed_properties.js" ></script>
+<script src="filter.js" ></script>
     </body>
 </html>
