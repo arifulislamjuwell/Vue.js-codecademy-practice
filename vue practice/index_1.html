@@ -14,12 +14,28 @@
                 padding: 22px;
                 background: yellow;
             }
+            .modal{  
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: blue;
+            }
+            .modalContent{
+                width: 950px;
+                background: red;
+                margin-top: 99px;
+                margin-left: auto;
+                margin-right: auto;
+            }
         </style>
     </head>
     <body>
 
         <!--  component  -->
     <div id="component">
+        <button @click= "isLogin= true"> login </button>
         <panel  title="this is panel" body="i am a boy">
             <input type="text"> <button >Submit </button>
         </panel>
@@ -27,7 +43,18 @@
         <panel title =" nothing" body="ok">
             <input type="text"> <button >Submit </button>
         </panel>
+        <modal v-if="isLogin" @onsave="isLogin= false">
+            <template slot="header"> 
+                <h2> THis is Header</h2>
+            </template>
+            <template slot="body">
+                <h1>Your Name</h1>
+                <input type="text">
+            </template>
+        </modal>
     </div>
+<hr>
+<hr>
 
 
 
