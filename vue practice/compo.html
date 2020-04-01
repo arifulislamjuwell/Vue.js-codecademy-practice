@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <meta charset="utf-8">
+        <style>
+            .tab{
+                border:1px solid rebeccapurple;
+                width: 960px;
+                min-height: 111px;
+                background: yellow;
+                margin: 44px auto;
+            }
+            .tab ul{
+                margin: 0;
+                list-style: none;
+                background: green;
+            }
+            .tab li{
+                display: inline-block;
+                cursor: pointer;
+                padding: 9px;
+                margin-top: 9px;
+            }
+            .details{
+                padding: 44px;
+            }
+            .tab li.active{
+                background: greenyellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="component">
+            <tabs>
+                <tab name="tab1" selected="true">
+                    Tab 1 <button> select </button>
+                </tab>
+                <tab name="tab2" selected="">
+                    Tab 2
+                </tab>
+                <tab name="tab3" selected="">
+                    Tab 3
+                </tab>
+                <tab name="tab4" selected="">
+                    Tab 4
+                </tab>
+            </tabs> 
+        </div>
+    </body>
+    <script src="component_practicle.js"></script>
+</html>

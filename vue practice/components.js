@@ -22,8 +22,8 @@ Vue.component('panel', {
 
 Vue.component('modal', {
     template: `
-<div class="modal">
-    <div class="modalContent">
+<div class="">
+    <div clasmodals="modalContent">
         <div class="modalHeader">
             <slot name="header"></slot>
         </div>
