@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <style>
+            .foo{
+                background: greenyellow;
+                text-align: center;
+                width: 960px;
+                margin: 44px auto;
+                min-height: 222px;
+            }
+            .bar-enter-active, .bar-leave-active{
+                transition:  margin-top 1s;
+            }
+            .bar-enter, .bar-leave-to{
+                margin-top: -500px;
+            }
+            .bar1-enter-active, .bar1-leave-active{
+                transition:  transform 1s;
+            }
+            .bar1-enter, .bar1-leave-to{
+                transform: matrix3d(
+                    0.6, 0.1, 0.7, 0, 
+                -0.5, 0.8, 0.1, 0, 
+                -0.6, -0.5, 0.5, 0, 
+                0, 0, 0, 1 
+                );
+            }
+        </style>
+    </head>
+    <body>
+        <div id="animation">
+        <button @click="show= !show"> Toggle </button>
+        <transition name="bar">
+        <div class="foo" v-if="show">
+            <h1>Hello world </h1>
+        </div>
+    </transition>
+        </div>
+        <div id="animation1">
+            <button @click="show= !show"> Toggle </button>
+            <transition name="bar1">
+            <div class="foo" v-if="show">
+                <h1>Hello world </h1>
+            </div>
+        </transition>
+            </div>
+
+            <div id="method">
+                <ul>
+                    <h4>method test</h4>
+                    <transition-group name="bar1">
+                    <li v-for= "(skill, index) in skills" key="skill">
+                        {{ skill  }} <button @click = removeSkill(index)> X </button>
+                    </li>
+                    </transition-group>
+                </ul>
+                <input type="text" v-model="newSkill">
+                <button v-on:click="addNew()"> Add </button>
+        
+            </div>
+    </body>
+    <script src="anim.js"></script>
+</html>
