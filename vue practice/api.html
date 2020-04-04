@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="vue.js"></script>
+        <script src="axios.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="api_test">
+            <button @click="callApi()">Call Api</button>
+
+            <div v-for="p in posts">
+                {{ p.employee_name }}---------{{ p.employee_salary }}
+            </div>
+        </div>
+
+
+    </body>
+    <script src="api.js"></script>
+
+</html>
