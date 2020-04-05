@@ -91,3 +91,7 @@ body {
   .outOfStock{
     text-decoration: line-through;
   }
+
+.fontBig{
+  font-size: 150%;
+  }

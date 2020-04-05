@@ -12,40 +12,10 @@
     <div class="nav-bar"></div>
 
     <div id="vue-app">
-
-        <div class="product">
-            <div class="product-image">
-                <img :src="image">
-            </div>
-            <div class="product-info">
-                <h1>{{ title }}</h1>
-                <p v-if="isStock> 10">In stock</p>
-                <p v-else-if="isStock <= 10 && isStock > 0">Almost sold out</p>
-                <p v-else>out of stock</p>
-                <hr>
-                <p v-if="isStock">In stock</p>
-                <p v-else :class="{outOfStock : !isStock}" :style="{color: css.color}">out of stock</p>
-
-                <ul>
-                    <li v-for="detail in details">
-                        {{ detail }}
-                    </li>
-                </ul>
-
-                <div class="color-box" v-for="(variant, index) in variants" :key="variant.variantId"
-                    :style="{ background: variant.variantColor}" @mouseover="changeColor(index)">
-                </div>
-
-                <button @click="addCount" 
-                :class="{disabledButton: !isStock}"
-                :disabled="!isStock">Add to Cart</button>
-                <div class="cart">
-                    <p>cart({{cartCount}})</p>
-                </div>
-
-            </div>
-
+        <div class="cart">
+            <p>cart({{ cartCount.length }})</p>
         </div>
+        <product :premium="premium" @add-to-cart="updateCount"></product>
     </div>
 
 </body>
