@@ -18,9 +18,9 @@
                 <img :src="image">
             </div>
             <div class="product-info">
-                <h1>{{ product }}</h1>
-                <p v-if="inventory> 10">In stock</p>
-                <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out</p>
+                <h1>{{ title }}</h1>
+                <p v-if="isStock> 10">In stock</p>
+                <p v-else-if="isStock <= 10 && isStock > 0">Almost sold out</p>
                 <p v-else>out of stock</p>
                 <hr>
                 <p v-if="isStock">In stock</p>
@@ -32,8 +32,8 @@
                     </li>
                 </ul>
 
-                <div class="color-box" v-for="variant in variants" :key="variant.variantId"
-                    :style="{ background: variant.variantColor}" @mouseover="changeColor(variant.variantImage)">
+                <div class="color-box" v-for="(variant, index) in variants" :key="variant.variantId"
+                    :style="{ background: variant.variantColor}" @mouseover="changeColor(index)">
                 </div>
 
                 <button @click="addCount" 
