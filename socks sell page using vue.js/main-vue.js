@@ -1,3 +1,58 @@
+Vue.component('productreview',{
+    template:`
+    <form class="review-form" @submit.prevent="onSubmit">
+    <p>
+      <label for="name">Name:</label>
+      <input id="name" v-model="name" placeholder="name">
+    </p>
+    
+    <p>
+      <label for="review">Review:</label>      
+      <textarea id="review" v-model="review"></textarea>
+    </p>
+    
+    <p>
+      <label for="rating">Rating:</label>
+      <select id="rating" v-model.number="rating">
+        <option>5</option>
+        <option>4</option>
+        <option>3</option>
+        <option>2</option>
+        <option>1</option>
+      </select>
+    </p>
+        
+    <p>
+      <input type="submit" value="Submit">  
+    </p>    
+  
+  </form>
+    `,
+    data(){
+        return{
+            name: '',
+            review:'',
+            rating:''
+
+        }
+    },
+    methods:{
+        onSubmit(){
+            let review = {
+                name: this.name,
+                review: this.review,
+                rating: this.rating
+            }
+            this.$emit('add-review', review)
+            this.name = null
+            this.review= null
+            this.rating= null
+
+        }
+    }
+})
+
+
 Vue.component('product', {
     props:['premium'],
     template: `
@@ -24,11 +79,13 @@ Vue.component('product', {
         <div class="color-box" v-for="(variant, index) in variants" :key="variant.variantId"
             :style="{ background: variant.variantColor}" @mouseover="changeColor(index)">
         </div>
-
+        
         <button @click="addCount" 
         :class="{disabledButton: !isStock}"
         :disabled="!isStock">Add to Cart</button>
     </div>
+
+    <productreview @add-review= "addReview"> </productreview>
 </div>
     `,
     data(){
@@ -58,7 +115,8 @@ Vue.component('product', {
                 color: 'red',
     
             },
-            increaseFont: false
+            increaseFont: false,
+            reviews: []
         }
     },
     methods: {
@@ -76,6 +134,10 @@ Vue.component('product', {
             else {
                 this.increaseFont = false
             }
+        },
+        addReview(review_object){
+            this.reviews.push(review_object)
+            console.log(this.reviews)
         }
     },
     computed: {
