@@ -83,7 +83,18 @@ Vue.component('product', {
         <button @click="addCount" 
         :class="{disabledButton: !isStock}"
         :disabled="!isStock">Add to Cart</button>
+
+    <div>
+    <p v-if="!reviews.length">  no review </p>
+    <ul>
+        <li v-for="review in reviews"> 
+            {{ review.name }} {{ review.review }} {{ review.rating }}
+        </li>
+    </ul>
+</div>
+
     </div>
+
 
     <productreview @add-review= "addReview"> </productreview>
 </div>
