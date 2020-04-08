@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app-1">
+        {{ message }}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds
+            to see my dynamically bound title!
+        </span>
+    </div>
+
+    <div id="app-3">
+        <span v-if="seen">Now you see me</span>
+    </div>
+
+    <div id="app-4">
+        <ul>
+            <li v-for="(todo, index) in todos">
+                {{ index+1 }} - {{ todo.text }}
+            </li>
+        </ul>
+    </div>
+
+    <div id="app-5">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div id="app-6">
+        <p>{{ message }}</p>
+        <input name="gender" type="radio" value="male" v-model="gender"> male
+        <input name="gender" type="radio" value="female" v-model="gender"> female
+        <input v-model="message">
+        <p>A list of names that rhyme: {{namesThatRhyme.join(', ')}}</p>
+        <label>
+            <input type="checkbox" value="Daniel" v-model="namesThatRhyme" />
+            Daniel
+        </label>
+        <label>
+            <input type="checkbox" value="Nathaniel" v-model="namesThatRhyme" />
+            Nathaniel
+        </label>
+        <label>
+            <input type="checkbox" value="Hubert" v-model="namesThatRhyme" />
+            Hubert
+        </label>
+    </div>
+</body>
+
+<script src="Declarative_Rendering.js"></script>
+<script src="Conditionals_and_Loops.js"></script>
+<script src="Handling_User_Input.js"></script>
+
+</html>

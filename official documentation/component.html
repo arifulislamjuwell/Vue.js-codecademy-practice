@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <ol>
+            <todo-item
+            v-for= "todo in groceryList" 
+            :todo= "todo"
+            :key="todo.id"
+            > 
+            </todo-item>
+        </ol>
+    </div>
+
+    <div id="instance">
+
+            <p>{{ facebook }}</p>
+            <p>{{ fullName }}</p>
+            <input type="text" v-model="full_name"> 
+            <button @click= "changeIt">Change it</button>
+            <!-- this will no longer update `foo`! -->
+            <button v-on:click="foo = true">Change it</button>
+            <a v-bind:href="facebook"> ... </a>
+            <p>Computed reversed message: "{{ reversedMessage }}"</p>
+
+
+    </div>
+
+    <div id = "computed_props">
+        Kilometers : <input type = "text" v-model = "kilometers">
+        Meters : <input type = "text" v-model = "meters">
+     </div>
+<hr>
+<hr>
+
+     <div id="watch-example">
+        <p>
+          Ask a yes/no question:
+          <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+      </div>
+
+</body>
+
+<script src="Composing_with_Components.js"></script>
+<script src="The_Vue_Instance_and_computed.js"></script>
+
+</html>
