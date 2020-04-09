@@ -19,3 +19,28 @@ const klsstylbind= new Vue({
         }
     },
 })
+
+const condition= new Vue({
+    el: '#condition',
+    data:{
+        win: 'i',
+        big: true,
+        address: false,
+        loginType: 'username'
+    },
+    computed: {
+
+    },
+    methods: {
+        changeType: function(){
+            if (this.loginType === 'username'){
+            this.loginType= 'null'
+        }
+        
+        else{
+        this.loginType= 'username'
+    }
+        }
+    },
+})
+
