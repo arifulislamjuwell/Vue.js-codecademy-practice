@@ -88,10 +88,19 @@
 </div>
 
 
+<div id="event">
+  <form>
+    <button v-on:click.stop="warn('Form cannot be submitted yet.', $event)">
+      Submit
+    </button>
+  </form>
+
+</div>
+
+
 </body>
 <script src="Class_and_Style_Bindings.js"></script>
 <script src="v-for-with-component.js"></script>
-
-
+<script src="event_handleing.js"></script>
 
 </html>

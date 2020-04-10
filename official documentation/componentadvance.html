@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="com">
+            <button-cnt></button-cnt>
+            <button-cnt></button-cnt>
+
+            <blog-post @enlarge-text="increase" :style="{fontSize: postFontSize+ 'em'}" :post="post" v-for="post in posts" :key="post.id">
+
+                <p> check slot</p>
+
+            </blog-post>
+            
+
+
+        </div>
+    </body>
+<script src="component.js"></script>
+</html>
